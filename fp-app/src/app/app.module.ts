@@ -10,6 +10,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { ContactComponent } from './contact/contact.component';
+import { ProductOverviewComponent } from './product-overview/product-overview.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { ContactComponent } from './contact/contact.component';
     HomeComponent,
     ProductsComponent,
     ContactComponent,
+    ProductOverviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { ContactComponent } from './contact/contact.component';
     BrowserAnimationsModule,
     MatButtonModule, 
     MatCheckboxModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

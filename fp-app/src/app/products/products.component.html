@@ -1,5 +1,7 @@
 <div class="container">
-  <app-product-overview name="Reprehenderit consequat elit cillum magna voluptate amet ad officia do ad proident." imageAddress="http://placehold.it/64x64"></app-product-overview>
-  <app-product-overview></app-product-overview>
-  <app-product-overview></app-product-overview>
+
+  <ng-container *ngFor="let product of products">
+    <app-product-overview [name]="product.name" [description]="product.description" [imageURL]="product.imageAddress"></app-product-overview>
+  </ng-container>
+
 </div>

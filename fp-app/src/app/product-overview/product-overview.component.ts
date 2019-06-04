@@ -10,7 +10,7 @@ export class ProductOverviewComponent implements OnInit {
   @Input() name: string;
   @Input() category: string;
   @Input() description: string;
-  @Input() imageAddress: string;
+  @Input() imageURL: string;
 
   constructor() { }
 

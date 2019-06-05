@@ -14,10 +14,11 @@ export class ProductsService {
 
   constructor(private http: HttpClient) { }
 
-  getProducts$(limit: number): Observable<Product> {
-    return this.http.get<any[]>(`${apiUrl}/products:`, {
+  getProducts$(start: number, limit: number): Observable<Product[]> {
+    return this.http.get<Product[]>(`${apiUrl}/products:`, {
       observe: 'response',
       params: {
+        _start: start.toString(),
         _limit: limit.toString()
       }
     }).pipe(

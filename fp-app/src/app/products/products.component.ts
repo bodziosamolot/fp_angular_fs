@@ -14,7 +14,7 @@ export class ProductsComponent implements OnInit {
   public products$: Observable<Product[]>;
 
   constructor(private productsService: ProductsService) {
-    this.products$ = interval(300 * 1000).pipe(
+    this.products$ = interval(3 * 1000).pipe(
       startWith(this.getRandomInt()),
       map(() => this.getRandomInt()),
       concatMap(x => this.productsService.getProducts$(x, 3))

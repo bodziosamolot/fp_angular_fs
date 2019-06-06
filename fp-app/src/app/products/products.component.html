@@ -1,7 +1,8 @@
 <div class="container">
-
-  <ng-container *ngFor="let product of products$ | async">
-    <app-product-overview [name]="product.name" [description]="product.description" [imageURL]="product.imageAddress"></app-product-overview>
-  </ng-container>
-
+  <div class="products">
+    <ng-container *ngFor="let product of products$ | async">
+      <app-product-overview [name]="product.name" [description]="product.description" [imageURL]="product.imageAddress">
+      </app-product-overview>
+    </ng-container>
+  </div>
 </div>

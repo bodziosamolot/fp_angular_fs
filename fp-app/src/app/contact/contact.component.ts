@@ -35,8 +35,10 @@ export class ContactComponent implements OnInit {
 
   }
 
-  onSubmit(){
-    this.submitted = true;
+  onSubmit() {
+    if (this.contactForm.valid && this.contactForm.touched) {
+      this.submitted = true;
+    }
   }
 
   get f() { return this.contactForm.controls; }

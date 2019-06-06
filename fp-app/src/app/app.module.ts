@@ -15,7 +15,6 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EllipsisModule } from 'ngx-ellipsis';
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { EllipsisModule } from 'ngx-ellipsis';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    EllipsisModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -17,11 +17,22 @@ export class ProductsComponent implements OnInit {
     this.products$ = interval(3 * 1000).pipe(
       startWith(this.getRandomInt()),
       map(() => this.getRandomInt()),
-      concatMap(x => this.productsService.getProducts$(x, 3))
+      concatMap(x => this.productsService.getProducts$(x, 3)),
+      map(products => {
+        return products.map(product => {
+          product.name= this.ellipsis(product.name, 25);
+          product.description = this.ellipsis(product.description, 640);
+          return product;
+        })
+      })
     );
   }
 
   ngOnInit() {
+  }
+
+  ellipsis(input: string, length: number) {
+    return input.length > length ? input.slice(0, length) + "..." : input;
   }
 
   getRandomInt() {

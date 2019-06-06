@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+  links = [{ name: 'Home', url: "/" }, { name: 'Products', url: "/products" }, { name: 'Contact', url: "/contact" }];
+  activeLink = this.links[0];
+  background = '';
+
   constructor() { }
 
   ngOnInit() {

@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "api": "json-server mocks/db.json --port 3000",
-    "all": "concurrently --kill-others \"npm run start\" \"npm run api\""
+    "all": "concurrently --kill-others \"npm run start\" \"npm run api\"",
+    "prod-build-dev": "ng build --prod --build-optimizer"
   },
   "private": true,
   "dependencies": {

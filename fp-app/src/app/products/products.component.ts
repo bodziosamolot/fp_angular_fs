@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit {
       map(() => this.getRandomInt()),
       concatMap(x => this.productsService.getProducts$(x, 3)),
       map(products => {
-        return products.map(product => {
+        return products.filter(product=>!!product).map(product => {
           product.name= this.ellipsis(product.name, 20);
           product.description = this.ellipsis(product.description, 640);
           return product;

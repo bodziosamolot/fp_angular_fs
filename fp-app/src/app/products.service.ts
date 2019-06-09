@@ -15,21 +15,30 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts$(start: number, limit: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`${apiUrl}/products:`, {
+    return this.http.get<Product[]>(`${apiUrl}/products.json`, {
       observe: 'response',
       params: {
-        _start: start.toString(),
-        _limit: limit.toString()
+        orderBy: "\"$key\"",
+        startAt: `\"${start}\"`,
+        limitToFirst: limit.toString()
       }
     }).pipe(
       map((res: HttpResponse<any>) => {
-        return res.body.map(product => {
+        return Object.keys(res.body).map(x => {
+          const product = res.body[x];
+
+          if (!product) {
+            return;
+          }
+
           const newProduct = new Product();
+
           newProduct.name = product.name;
           newProduct.description = product.description;
           newProduct.imageAddress = product.avatar;
+
           return newProduct;
-        });
+        })
       })
     );
   }

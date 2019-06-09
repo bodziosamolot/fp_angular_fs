@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://fp-angular-fs.firebaseio.com'
+  apiUrl: 'https://fp-angular-fs.firebaseio.com',
+  firebase: {
+    apiKey: '<your-key>',
+    authDomain: '<your-project-authdomain>',
+    databaseURL: 'https://fp-angular-fs.firebaseio.com',
+    projectId: 'fp-angular-fs',
+    storageBucket: '<your-storage-bucket>',
+    messagingSenderId: '<your-messaging-sender-id>'
+  }
 };
 
 /*

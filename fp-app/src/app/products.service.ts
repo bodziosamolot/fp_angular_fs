@@ -1,31 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Product } from './models/product';
-import { HttpClient, HttpResponse } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-
-const apiUrl = environment.apiUrl;
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private db: AngularFireDatabase) { }
 
   getProducts$(start: number, limit: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`${apiUrl}/products.json`, {
-      observe: 'response',
-      params: {
-        orderBy: "\"$key\"",
-        startAt: `\"${start}\"`,
-        limitToFirst: limit.toString()
-      }
-    }).pipe(
-      map((res: HttpResponse<any>) => {
-        return Object.keys(res.body).map(x => {
-          const product = res.body[x];
+    return this.db.list<Product>('products', query => query.orderByKey().startAt(`${start}`).limitToFirst(limit)).valueChanges().pipe(
+      map(productFromHttp => {
+        return Object.keys(productFromHttp).map(x => {
+          const product = productFromHttp[x];
 
           if (!product) {
             return;

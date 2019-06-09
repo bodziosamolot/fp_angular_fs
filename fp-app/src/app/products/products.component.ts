@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { Product } from '../models/product';
 import { interval, Observable } from 'rxjs';
-import { concatMap, map, startWith } from 'rxjs/operators';
+import { map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +17,9 @@ export class ProductsComponent implements OnInit {
     this.products$ = interval(3 * 1000).pipe(
       startWith(this.getRandomInt()),
       map(() => this.getRandomInt()),
-      concatMap(x => this.productsService.getProducts$(x, 3)),
+      switchMap(x => {
+        return this.productsService.getProducts$(x, 3);
+      }),
       map(products => {
         return products.filter(product=>!!product).map(product => {
           product.name= this.ellipsis(product.name, 20);

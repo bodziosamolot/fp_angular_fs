@@ -19,6 +19,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
     ReactiveFormsModule,
     MatTabsModule,
     AngularFireModule.initializeApp(environment.firebase, 'fp-angular-fs'),
-    AngularFireDatabaseModule 
+    AngularFireDatabaseModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

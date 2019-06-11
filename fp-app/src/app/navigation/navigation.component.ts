@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-navigation',
@@ -11,9 +12,13 @@ export class NavigationComponent implements OnInit {
   activeLink = this.links[0];
   background = '';
 
-  constructor() { }
+  constructor(private _authService: AuthService) { }
 
   ngOnInit() {
+  }
+
+  doGoogleLogin(){
+    this._authService.doGoogleLogin();
   }
 
 }

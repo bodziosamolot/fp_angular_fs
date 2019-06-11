@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   apiUrl: 'https://fp-angular-fs.firebaseio.com',
   firebase: {
-    apiKey: '<your-key>',
-    authDomain: '<your-project-authdomain>',
+    apiKey: 'AIzaSyAIvUDqQa9JiOtVaxSHYjFX2TG3cY8repw',
+    authDomain: 'localhost:4200',
     databaseURL: 'https://fp-angular-fs.firebaseio.com',
     projectId: 'fp-angular-fs',
     storageBucket: '<your-storage-bucket>',

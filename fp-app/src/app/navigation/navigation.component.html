@@ -1,5 +1,5 @@
 <nav mat-tab-nav-bar>
     <a mat-tab-link *ngFor="let link of links" [routerLink]="link.url" (click)="activeLink = link.name" [active]="activeLink == link.name"> {{link.name}} </a>
     <a mat-tab-link [disabled]="true" class="placeholder">  </a>
-    <a mat-tab-link class="login"> Login </a>
+    <a mat-tab-link (click)="doGoogleLogin()" class="login"> Login </a>
 </nav>

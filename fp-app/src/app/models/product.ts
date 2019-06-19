@@ -4,4 +4,5 @@ export class Product{
     type: string;
     imageAddress: string;
     id: string;
+    isActive: boolean;
 }

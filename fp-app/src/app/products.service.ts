@@ -27,6 +27,8 @@ export class ProductsService {
           newProduct.description = product.description;
           newProduct.imageAddress = product.avatar;
           newProduct.id = product.id;
+          newProduct.type = product.category;
+          newProduct.isActive = product.isActive;
 
           return newProduct;
         })

@@ -1,3 +1,5 @@
+<app-product-list-filter (filterChanged)="onFilterChanged($event)"></app-product-list-filter>
+
 <div *ngFor="let product of products$ | async; let i = index">
   [{{ page * pageSize+i+1 }}] <app-product-list-item [product]="product"></app-product-list-item>
 </div>

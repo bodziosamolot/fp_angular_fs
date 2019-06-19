@@ -20,14 +20,17 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ProductListComponent } from './products/product-list/product-list.component';
-import { ProductListItemComponent } from './products/product-list-item/product-list-item.component';
 import { RandomProductsComponent } from './random-products/random-products.component';
 import { ProductPaginationComponent } from './product-pagination/product-pagination.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ProductListFilterComponent } from './product-list-filter/product-list-filter.component';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductListItemComponent } from './product-list-item/product-list-item.component';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,7 @@ import { FormsModule } from '@angular/forms';
     RandomProductsComponent,
     ProductPaginationComponent,
     ProductListFilterComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ import { FormsModule } from '@angular/forms';
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

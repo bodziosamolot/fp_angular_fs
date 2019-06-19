@@ -1,0 +1,11 @@
+<div class="item">
+    <div>
+        {{product.name}}
+    </div>
+    <div>
+        <button mat-raised-button routerLink="/products/{{product.id}}" [state]="product">View</button>
+        <button mat-raised-button>Edit</button>
+        <button mat-raised-button>Delete</button>
+    </div>
+    <mat-divider></mat-divider>
+</div>

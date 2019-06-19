@@ -1,0 +1,13 @@
+<app-product-list-filter (filterChanged)="onFilterChanged($event)"></app-product-list-filter>
+
+<mat-selection-list>
+  <mat-list-item *ngFor="let product of products$ | async; let i = index">
+    <app-product-list-item class="item" [product]="product"></app-product-list-item>
+  </mat-list-item>
+</mat-selection-list>
+
+<!-- <app-product-pagination (pageChange)="getNewPage($event)" [totalPages]="100"> -->
+<!-- </app-product-pagination> -->
+
+<mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="getNewPage($event)">
+</mat-paginator>

@@ -3,4 +3,5 @@ export class Product{
     description: string;
     type: string;
     imageAddress: string;
+    id: string;
 }

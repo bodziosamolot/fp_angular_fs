@@ -1,0 +1,12 @@
+<div *ngFor="let product of products$ | async; let i = index">
+  [{{ page * pageSize+i+1 }}] <app-product-list-item [product]="product"></app-product-list-item>
+</div>
+
+<!-- <app-product-pagination (pageChange)="getNewPage($event)" [totalPages]="100"> -->
+<!-- </app-product-pagination> -->
+
+<mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="getNewPage($event)">
+</mat-paginator>

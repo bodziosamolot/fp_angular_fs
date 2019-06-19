@@ -26,6 +26,7 @@ export class ProductsService {
           newProduct.name = product.name;
           newProduct.description = product.description;
           newProduct.imageAddress = product.avatar;
+          newProduct.id = product.id;
 
           return newProduct;
         })

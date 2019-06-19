@@ -20,6 +20,11 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductListItemComponent } from './products/product-list-item/product-list-item.component';
+import { RandomProductsComponent } from './random-products/random-products.component';
+import { ProductPaginationComponent } from './product-pagination/product-pagination.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     ProductsComponent,
     ContactComponent,
     ProductOverviewComponent,
+    ProductListComponent,
+    ProductListItemComponent,
+    RandomProductsComponent,
+    ProductPaginationComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +54,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatTabsModule,
     AngularFireModule.initializeApp(environment.firebase, 'fp-angular-fs'),
     AngularFireDatabaseModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

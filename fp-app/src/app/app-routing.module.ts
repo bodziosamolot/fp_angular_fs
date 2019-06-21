@@ -5,11 +5,13 @@ import { ContactComponent } from './contact/contact.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { RandomProductsComponent } from './random-products/random-products.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 const routes: Routes = [
   { path: '', component: RandomProductsComponent, pathMatch: 'full'},
   { path: 'contact', component: ContactComponent },
   { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'products/:id/edit', component: ProductEditComponent },
   { path: 'products', component: ProductListComponent},
 ];
 

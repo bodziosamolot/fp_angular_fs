@@ -32,6 +32,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { ProductEditComponent } from './product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     RandomProductsComponent,
     ProductPaginationComponent,
     ProductListFilterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,

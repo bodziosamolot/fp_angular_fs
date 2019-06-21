@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, tap, switchMap, first } from 'rxjs/operators';
+import { map, tap, switchMap, first, filter } from 'rxjs/operators';
 import { ProductsService } from '../products.service';
 import { Product } from '../models/product';
 import { debug } from 'util';
@@ -15,16 +15,18 @@ export class ProductDetailComponent implements OnInit {
 
   public productDetails$: Observable<any>;
   public showDescription: boolean = true;
+  public state$: Observable<object>;
 
-  constructor(public activatedRoute: ActivatedRoute, private productsService: ProductsService) { }
+  constructor(public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.productDetails$ = this.activatedRoute.params.pipe(
-      switchMap(x => this.productsService.getProduct$(x.id))
-    );
+    this.productDetails$ = this.activatedRoute.paramMap
+      .pipe(
+        map(() => window.history.state)
+      )
   }
 
-  toggleDescription(){
+  toggleDescription() {
     this.showDescription = !this.showDescription;
   }
 

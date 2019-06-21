@@ -3,9 +3,9 @@
         {{product.name}}
     </div>
     <div>
-        <button mat-raised-button routerLink="/products/{{product.id}}" [state]="product">View</button>
-        <button mat-raised-button>Edit</button>
-        <button mat-raised-button>Delete</button>
+        <a mat-raised-button routerLink="/products/{{product.id}}" [state]="product">View</a>
+        <a mat-raised-button routerLink="/products/{{product.id}}/edit" [state]="product">Edit</a>
+        <a mat-raised-button>Delete</a>
     </div>
     <mat-divider></mat-divider>
 </div>

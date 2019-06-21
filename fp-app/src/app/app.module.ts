@@ -28,9 +28,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
-import {MatListModule} from '@angular/material/list';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     MatTabsModule,
     AngularFireModule.initializeApp(environment.firebase, 'fp-angular-fs'),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
     MatSelectModule,

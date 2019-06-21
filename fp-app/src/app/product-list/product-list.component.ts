@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
   @ViewChildren(ProductListItemComponent) productComponents: QueryList<ProductListItemComponent>
 
   // MatPaginator Inputs
-  length = 100;
+  length = 1000;
   pageSizeOptions: number[] = [5, 10, 25, 100];
 
   // MatPaginator Output
@@ -40,12 +40,8 @@ export class ProductListComponent implements OnInit {
   }
 
   updateProducts() {
-    this.products$ = this.productsService.getProducts$(this.page, this.pageSize).pipe(
-      map(products => products.filter(product => {
-        return (this.filter.nameAndDescriptionFilter.length===0 || product.description.includes(this.filter.nameAndDescriptionFilter) || product.name.includes(this.filter.nameAndDescriptionFilter))
-          && (this.filter.categoryName.length===0 || product.type === this.filter.categoryName);
-      })),
-    );
+    this.products$ =
+      this.productsService.getProducts$(this.page, this.pageSize, this.filter.nameAndDescriptionFilter, this.filter.categoryName)
   }
 
   onFilterChanged(filter) {

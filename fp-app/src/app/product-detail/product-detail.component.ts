@@ -14,17 +14,18 @@ import { debug } from 'util';
 export class ProductDetailComponent implements OnInit {
 
   public productDetails$: Observable<any>;
+  public showDescription: boolean = true;
 
   constructor(public activatedRoute: ActivatedRoute, private productsService: ProductsService) { }
 
   ngOnInit() {
     this.productDetails$ = this.activatedRoute.params.pipe(
-      switchMap(x => {
-        return this.productsService.getProduct$(x.id);
-      }),
-      first(),
-      map(products => products[0]),
+      switchMap(x => this.productsService.getProduct$(x.id))
     );
+  }
+
+  toggleDescription(){
+    this.showDescription = !this.showDescription;
   }
 
 }

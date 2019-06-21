@@ -5,4 +5,6 @@ export class Product{
     imageAddress: string;
     id: string;
     isActive: boolean;
+    price: string;
+    created: Date
 }

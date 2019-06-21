@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://fp-angular-fs.firebaseio.com',
+  apiUrl: 'http://localhost:3000',
   firebase: {
     apiKey: '<your-key>',
     authDomain: '<your-project-authdomain>',
-    databaseURL: 'https://fp-angular-fs.firebaseio.com',
+    databaseURL: '',
     projectId: 'fp-angular-fs',
     storageBucket: '<your-storage-bucket>',
     messagingSenderId: '<your-messaging-sender-id>'

@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/product';
 import { PageEvent } from '@angular/material';
 import { ProductFilter } from 'src/app/models/productFilter';
 import { ProductsService } from 'src/app/shared/products.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-list',
@@ -39,7 +40,7 @@ export class ProductListComponent implements OnInit {
 
   updateProducts() {
     this.products$ =
-      this.productsService.getProducts$(this.page, this.pageSize, this.filter.nameAndDescriptionFilter, this.filter.categoryName)
+      this.productsService.getProducts$(this.page, this.pageSize, this.filter.nameAndDescriptionFilter, this.filter.categoryName);
   }
 
   onFilterChanged(filter) {

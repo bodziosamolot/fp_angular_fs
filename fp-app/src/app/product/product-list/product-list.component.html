@@ -1,4 +1,4 @@
-<div class="list-container">
+<div class="list-container" *ngIf="products$ | async else loading">
   <app-product-list-filter (filterChanged)="onFilterChanged($event)"></app-product-list-filter>
 
   <mat-selection-list>
@@ -17,3 +17,8 @@
   </div>
 
 </div>
+
+<ng-template #loading>
+  <mat-progress-spinner [mode]="'indeterminate'">
+  </mat-progress-spinner>
+</ng-template>

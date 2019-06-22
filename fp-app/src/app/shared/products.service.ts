@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from './models/product';
-import { map, tap } from 'rxjs/operators';
-import { firestore } from 'firebase';
+import { Product } from '../models/product';
+import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +13,10 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts$(start: number, limit: number, nameOrDescriptionFilter: string = '', categoryFilter: string = ''): Observable<Product[]> {
+    console.log(`start: ${start*limit}, limit: ${limit}`)
     let params: any = {
+      _start: (start * limit).toString(),
+      _limit: limit.toString(),
       _sort: "id",
       _order: "desc"
     }
@@ -30,7 +32,7 @@ export class ProductsService {
     return this.http.get<Product[]>(`${environment.apiUrl}/products`, {
       params
     }).pipe(
-      map(response => response.map(x => {
+      map(response => response.map((x: any) => {
         return {
           name: x.name,
           description: x.description,
@@ -59,7 +61,7 @@ export class ProductsService {
         id_like: id.toString()
       }
     }).pipe(
-      map(response => response.map(x => {
+      map(response => response.map((x: any) => {
         return {
           name: x.name,
           description: x.description,

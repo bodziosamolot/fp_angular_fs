@@ -3,9 +3,7 @@ import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { HttpClient } from 'selenium-webdriver/http';
-import { ProductsService } from '../products.service';
-import { environment } from 'src/environments/environment';
+import { ProductsService } from 'src/app/shared/products.service';
 
 @Component({
   selector: 'app-product-edit',

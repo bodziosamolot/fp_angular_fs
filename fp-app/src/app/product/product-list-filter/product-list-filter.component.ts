@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ProductFilter } from '../models/productFilter';
+import { ProductFilter } from '../../models/productFilter';
 import { debug } from 'util';
 
 @Component({

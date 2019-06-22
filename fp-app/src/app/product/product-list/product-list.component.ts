@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewChildren, QueryList, Input } from '@angular/core';
 import { ProductListItemComponent } from '../product-list-item/product-list-item.component';
-import { ProductsService } from 'src/app/products.service';
-import { interval, Observable } from 'rxjs';
-import { startWith, tap, filter, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product';
 import { PageEvent } from '@angular/material';
 import { ProductFilter } from 'src/app/models/productFilter';
+import { ProductsService } from 'src/app/shared/products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -32,11 +31,10 @@ export class ProductListComponent implements OnInit {
   }
 
   constructor(private productsService: ProductsService) {
-    this.products$ = this.productsService.getProducts$(5, this.pageSize);
   }
 
   ngOnInit() {
-
+    this.products$ = this.productsService.getProducts$(this.page, this.pageSize);
   }
 
   updateProducts() {

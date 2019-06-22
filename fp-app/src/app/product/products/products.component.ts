@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../products.service';
-import { Product } from '../models/product';
+import { ProductsService } from '../../shared/products.service';
+import { Product } from '../../models/product';
 import { interval, Observable } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule, Router } from '@angular/router'
-import { ContactComponent } from './contact/contact.component';
-import { ProductListComponent } from './product-list/product-list.component';
-import { RandomProductsComponent } from './random-products/random-products.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
+import { RandomProductsComponent } from './product/random-products/random-products.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { ProductEditComponent } from './product/product-edit/product-edit.component';
+import { ContactComponent } from './contact/contact/contact.component';
 
 const routes: Routes = [
   { path: '', component: RandomProductsComponent, pathMatch: 'full'},
@@ -20,7 +20,6 @@ const routes: Routes = [
   declarations: [],
   imports: [
     RouterModule.forRoot(routes),
-    CommonModule
   ],
   exports: [RouterModule]
 })

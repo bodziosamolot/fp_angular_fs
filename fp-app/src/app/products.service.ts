@@ -14,20 +14,27 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts$(start: number, limit: number, nameOrDescriptionFilter: string = '', categoryFilter: string = ''): Observable<Product[]> {
+    let params: any = {
+      _sort: "id",
+      _order: "desc"
+    }
+
+    if (nameOrDescriptionFilter) {
+      params.name_like = nameOrDescriptionFilter;
+    }
+
+    if (categoryFilter) {
+      params.category_like = categoryFilter;
+    }
+
     return this.http.get<Product[]>(`${environment.apiUrl}/products`, {
-      params: {
-        _page: start.toString(),
-        _limit: limit.toString(),
-        name_like: nameOrDescriptionFilter || '',
-        description_like: nameOrDescriptionFilter || '',
-        category_like: categoryFilter || ''
-      }
+      params
     }).pipe(
       map(response => response.map(x => {
         return {
           name: x.name,
           description: x.description,
-          type: x.type,
+          category: x.category,
           imageAddress: x.avatar,
           id: x.id,
           isActive: x.isActive,
@@ -36,6 +43,14 @@ export class ProductsService {
         }
       }))
     );
+  }
+
+  addProduct$(prodct: Product): Observable<Product> {
+    return this.http.post<Product>(`${environment.apiUrl}/products`, prodct);
+  }
+
+  updateProduct$(product: Product): Observable<Product> {
+    return this.http.put<Product>(`${environment.apiUrl}/products/${product.id}`, product);
   }
 
   getProduct$(id: string): Observable<Product> {
@@ -48,7 +63,7 @@ export class ProductsService {
         return {
           name: x.name,
           description: x.description,
-          type: x.type,
+          category: x.category,
           imageAddress: x.avatar,
           id: x.id,
           isActive: x.isActive,

@@ -10,6 +10,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 const routes: Routes = [
   { path: '', component: RandomProductsComponent, pathMatch: 'full'},
   { path: 'contact', component: ContactComponent },
+  { path: 'products/create', component: ProductEditComponent },
   { path: 'products/:id', component: ProductDetailComponent },
   { path: 'products/:id/edit', component: ProductEditComponent },
   { path: 'products', component: ProductListComponent},

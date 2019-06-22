@@ -1,3 +1,23 @@
-<p>
-  product-edit works!
-</p>
+<div class="container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="left-column">
+      <div class="form-container">
+        <mat-form-field>
+          <input matInput placeholder="Product name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Product description" formControlName="description">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Price" formControlName="price">
+        </mat-form-field>
+      </div>
+
+    </div>
+    <div class="right-column">
+
+    </div>
+    <button mat-raised-button type="submit"
+      [disabled]="submitted && !(productForm.valid && productForm.touched)">Submit</button>
+  </form>
+</div>

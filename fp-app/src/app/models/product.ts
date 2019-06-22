@@ -1,7 +1,7 @@
 export class Product{
     name: string;
     description: string;
-    type: string;
+    category: string;
     imageAddress: string;
     id: string;
     isActive: boolean;

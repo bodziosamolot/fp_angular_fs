@@ -48,6 +48,10 @@ export class ProductListComponent implements OnInit {
     this.updateProducts();
   }
 
+  onItemRemoved(){
+    this.updateProducts();
+  }
+
   getNewPage(page: PageEvent) {
     this.pageSize = page.pageSize;
     this.page = page.pageIndex;

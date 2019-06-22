@@ -8,7 +8,7 @@
     <div class="operations">
         <a mat-raised-button routerLink="/products/{{product.id}}" [state]="product">View</a>
         <a mat-raised-button routerLink="/products/{{product.id}}/edit" [state]="product">Edit</a>
-        <a mat-raised-button>Delete</a>
+        <a mat-raised-button (click)="deleteProduct()">Delete</a>
     </div>
     <mat-divider></mat-divider>
 </div>

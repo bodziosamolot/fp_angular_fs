@@ -13,7 +13,7 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts$(start: number, limit: number, nameOrDescriptionFilter: string = '', categoryFilter: string = ''): Observable<Product[]> {
-    console.log(`start: ${start*limit}, limit: ${limit}`)
+    console.log(`start: ${start * limit}, limit: ${limit}`)
     let params: any = {
       _start: (start * limit).toString(),
       _limit: limit.toString(),
@@ -53,6 +53,10 @@ export class ProductsService {
 
   updateProduct$(product: Product): Observable<Product> {
     return this.http.put<Product>(`${environment.apiUrl}/products/${product.id}`, product);
+  }
+
+  deleteProduct$(id: string): Observable<Product> {
+    return this.http.delete<Product>(`${environment.apiUrl}/products/${id}`);
   }
 
   getProduct$(id: string): Observable<Product> {

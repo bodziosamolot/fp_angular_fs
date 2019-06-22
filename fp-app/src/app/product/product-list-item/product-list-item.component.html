@@ -5,7 +5,7 @@
     <div>
         {{product.category}}
     </div>
-    <div>
+    <div class="operations">
         <a mat-raised-button routerLink="/products/{{product.id}}" [state]="product">View</a>
         <a mat-raised-button routerLink="/products/{{product.id}}/edit" [state]="product">Edit</a>
         <a mat-raised-button>Delete</a>

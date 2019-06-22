@@ -1,24 +1,27 @@
-<div class="list-container" *ngIf="products$ | async else loading">
-  <app-product-list-filter (filterChanged)="onFilterChanged($event)"></app-product-list-filter>
+<div class="container">
+  <app-product-list-filter class="list-container" (filterChanged)="onFilterChanged($event)"></app-product-list-filter>
 
-  <mat-selection-list>
-    <mat-list-item *ngFor="let product of products$ | async; let i = index">
-      <app-product-list-item class="item" [product]="product"></app-product-list-item>
-    </mat-list-item>
-  </mat-selection-list>
+  <div class="list-container" *ngIf="products$ | async else loading">
 
-  <div class="list-footer">
-    <div>
-      <a class="add-product-button" mat-raised-button routerLink="/products/create">Add product</a>
+    <mat-selection-list>
+      <mat-list-item *ngFor="let product of products$ | async; let i = index">
+        <app-product-list-item class="item" [product]="product"></app-product-list-item>
+      </mat-list-item>
+    </mat-selection-list>
+
+    <div class="list-footer">
+      <div>
+        <a class="add-product-button" mat-raised-button routerLink="/products/create">Add product</a>
+      </div>
+      <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+        (page)="getNewPage($event)">
+      </mat-paginator>
     </div>
-    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-      (page)="getNewPage($event)">
-    </mat-paginator>
+
   </div>
 
+  <ng-template #loading>
+    <mat-progress-spinner [mode]="'indeterminate'">
+    </mat-progress-spinner>
+  </ng-template>
 </div>
-
-<ng-template #loading>
-  <mat-progress-spinner [mode]="'indeterminate'">
-  </mat-progress-spinner>
-</ng-template>

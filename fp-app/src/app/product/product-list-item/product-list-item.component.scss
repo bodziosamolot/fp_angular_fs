@@ -1,16 +1,11 @@
 .item{
     display: grid;
-    grid-template-columns: 30% 20% 30%;
+    grid-template-columns: 50% 15% 30%;
     grid-column-gap: 20px;
     align-items: center;
 }
 
-button{
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-a{
-    margin-left: 20px;
-    margin-right: 20px;
+.operations{
+    display: flex;
+    justify-content: space-between;
 }

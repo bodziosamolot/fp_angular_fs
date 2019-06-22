@@ -4,11 +4,18 @@
 
 .list-footer{
     display: grid;
-    grid-template-columns: 35% 50%;
+    grid-template-columns: 50% auto;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .list-container{
-    width: 90%;
+    width: 50%;
 }
 
 .add-product-button{

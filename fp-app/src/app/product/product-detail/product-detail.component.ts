@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, tap, switchMap, first, filter } from 'rxjs/operators';
-import { ProductsService } from '../../shared/products.service';
-import { Product } from '../../models/product';
-import { debug } from 'util';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product-detail',

@@ -3,21 +3,27 @@
 </div>
 <div class="container">
     <div class="left-column">
-        <img [src]="(productDetails$ | async)?.imageAddress">
-        <div>{{ (productDetails$ | async)?.price}}</div>
+        <mat-card>
+            <img [src]="(productDetails$ | async)?.imageAddress">
+            <div class="price">{{ (productDetails$ | async)?.price | currency:'EUR'}}</div>
+        </mat-card>
     </div>
     <div class="right-column">
-        <div class="name-container">
-            <div>{{ (productDetails$ | async)?.name}}</div>
-            <button mat-raised-button (click)="toggleDescription()">{{ showDescription ? 'Hide' : 'Show' }} description</button>
-        </div>
-        <mat-divider></mat-divider>
-        <ng-container *ngIf="showDescription">
-            <div >{{ (productDetails$ | async)?.description }}</div>
-            <mat-divider></mat-divider>
-        </ng-container>
-        <div>{{ (productDetails$ | async)?.type}}</div>
-        <mat-divider></mat-divider>
-        <div>{{ (productDetails$ | async)?.created | date: 'yyyy/MM/dd HH:mm:ss' }}</div>
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-description>
+                        {{ (productDetails$ | async)?.name}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <div>{{ (productDetails$ | async)?.description }}</div>
+                <mat-divider></mat-divider>
+                <div>{{ (productDetails$ | async)?.type}}</div>
+                <mat-divider></mat-divider>
+                <div>{{ (productDetails$ | async)?.created | date: 'yyyy/MM/dd HH:mm:ss' }}</div>
+
+            </mat-expansion-panel>
+        </mat-accordion>
     </div>
 </div>

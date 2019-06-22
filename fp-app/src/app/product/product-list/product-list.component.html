@@ -1,15 +1,19 @@
-<app-product-list-filter (filterChanged)="onFilterChanged($event)"></app-product-list-filter>
+<div class="list-container">
+  <app-product-list-filter (filterChanged)="onFilterChanged($event)"></app-product-list-filter>
 
-<mat-selection-list>
-  <mat-list-item *ngFor="let product of products$ | async; let i = index">
-    <app-product-list-item class="item" [product]="product"></app-product-list-item>
-  </mat-list-item>
-</mat-selection-list>
+  <mat-selection-list>
+    <mat-list-item *ngFor="let product of products$ | async; let i = index">
+      <app-product-list-item class="item" [product]="product"></app-product-list-item>
+    </mat-list-item>
+  </mat-selection-list>
 
-<!-- <app-product-pagination (pageChange)="getNewPage($event)" [totalPages]="100"> -->
-<!-- </app-product-pagination> -->
+  <div class="list-footer">
+    <div>
+      <a class="add-product-button" mat-raised-button routerLink="/products/create">Add product</a>
+    </div>
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      (page)="getNewPage($event)">
+    </mat-paginator>
+  </div>
 
-<mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="getNewPage($event)">
-</mat-paginator>
-
-<a mat-raised-button routerLink="/products/create">Add product</a>
+</div>

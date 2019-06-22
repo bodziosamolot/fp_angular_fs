@@ -8,6 +8,7 @@ import { ProductOverviewComponent } from './product-overview/product-overview.co
 import { ProductPaginationComponent } from './product-pagination/product-pagination.component';
 import { ProductsComponent } from './products/products.component';
 import { RandomProductsComponent } from './random-products/random-products.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -20,10 +21,11 @@ import { SharedModule } from '../shared/shared.module';
     ProductOverviewComponent,
     ProductPaginationComponent,
     ProductsComponent,
-    RandomProductsComponent
+    RandomProductsComponent,
   ],
   imports: [
-    SharedModule
+    SharedModule,
+    MatExpansionModule
   ]
 })
 export class ProductModule { }

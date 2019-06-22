@@ -1,6 +1,9 @@
 <div class="item">
     <div>
-        {{product.name}}
+        {{product.name|ellipsis:40}}
+    </div>
+    <div>
+        {{product.category}}
     </div>
     <div>
         <a mat-raised-button routerLink="/products/{{product.id}}" [state]="product">View</a>

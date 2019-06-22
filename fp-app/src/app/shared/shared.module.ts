@@ -7,10 +7,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { EllipsisPipe } from './ellipsis.pipe';
 
 @NgModule({
   declarations: [
     NavigationComponent,
+    EllipsisPipe,
   ],
   imports: [
     CommonModule,
@@ -54,6 +56,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     RouterModule,
     FormsModule,
     NavigationComponent,
+    EllipsisPipe
   ],
   providers:[
   ]

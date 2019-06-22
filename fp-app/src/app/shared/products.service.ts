@@ -13,7 +13,6 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts$(start: number, limit: number, nameOrDescriptionFilter: string = '', categoryFilter: string = ''): Observable<Product[]> {
-    console.log(`start: ${start * limit}, limit: ${limit}`)
     let params: any = {
       _start: (start * limit).toString(),
       _limit: limit.toString(),

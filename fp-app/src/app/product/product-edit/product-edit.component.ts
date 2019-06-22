@@ -51,35 +51,28 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     this.productSubscription.unsubscribe();
   }
 
-  onSubmit() {
+  async onSubmit() {
+    const productCore = {
+      name: this.productForm.controls['name'].value,
+      description: this.productForm.controls['description'].value,
+      price: this.productForm.controls['price'].value,
+      category: this.productForm.controls['category'].value,
+      imageAddress: this.productForm.controls['imageAddress'].value,
+      isActive: this.productForm.controls['isActive'].value,
+      created: this.productForm.controls['created'].value
+    }
+
     if (this.productForm.controls['id'].value) {
-      this.productService.updateProduct$({
+      await this.productService.updateProduct$({
         id: this.productForm.controls['id'].value,
-        name: this.productForm.controls['name'].value,
-        description: this.productForm.controls['description'].value,
-        price: this.productForm.controls['price'].value,
-        category: this.productForm.controls['category'].value,
-        imageAddress: this.productForm.controls['imageAddress'].value,
-        isActive: this.productForm.controls['isActive'].value,
-        created: this.productForm.controls['created'].value
-      }).subscribe(x => {
-        console.log(x);
-        this.router.navigate(['/products']);
-      })
+        ...productCore
+      }).toPromise();
+      this.router.navigate(['/products']);
     } else {
-      this.productService.addProduct$({
-        id: null, 
-        name: this.productForm.controls['name'].value,
-        description: this.productForm.controls['description'].value,
-        price: this.productForm.controls['price'].value,
-        category: this.productForm.controls['category'].value,
-        imageAddress: this.productForm.controls['imageAddress'].value,
-        isActive: this.productForm.controls['isActive'].value,
-        created: this.productForm.controls['created'].value
-      }).subscribe(x => {
-        console.log(x);
-        this.router.navigate(['/products']);
-      })
+      await this.productService.addProduct$({
+        id: null,
+        ...productCore
+      }).toPromise();
     }
   }
 }

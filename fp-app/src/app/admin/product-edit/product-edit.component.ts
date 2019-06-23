@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ProductsService } from 'src/app/shared/products.service';
-import { EllipsisPipe } from 'src/app/shared/ellipsis.pipe';
 
 @Component({
   selector: 'app-product-edit',
@@ -69,12 +68,13 @@ export class ProductEditComponent implements OnInit, OnDestroy {
         id: this.productForm.controls['id'].value,
         ...productCore
       }).toPromise();
-      this.router.navigate(['/products']);
     } else {
       await this.productService.addProduct$({
         id: null,
         ...productCore
       }).toPromise();
     }
+
+    this.router.navigate(['/products']);
   }
 }

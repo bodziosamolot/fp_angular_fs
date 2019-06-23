@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductListFilterComponent } from './product-list-filter/product-list-filter.component';
 import { ProductListItemComponent } from './product-list-item/product-list-item.component';
@@ -14,7 +13,6 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [
     ProductDetailComponent,
-    ProductEditComponent,
     ProductListComponent,
     ProductListFilterComponent,
     ProductListItemComponent,

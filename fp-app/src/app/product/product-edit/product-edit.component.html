@@ -1,23 +1,29 @@
 <div class="container">
-  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-    <div class="left-column">
-      <div class="form-container">
+  <form class="form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+      <div class="left-column">
         <mat-form-field>
-          <input matInput placeholder="Product name" formControlName="name">
+          <textarea matInput cdkTextareaAutosize placeholder="Product name" formControlName="name"></textarea>
         </mat-form-field>
         <mat-form-field>
-          <input matInput placeholder="Product description" formControlName="description">
+          <textarea matInput cdkTextareaAutosize placeholder="Product description" formControlName="description"></textarea>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Price" formControlName="price">
         </mat-form-field>
       </div>
-
+      <div class="right-column">
+        <mat-form-field>
+          <mat-label>Category</mat-label>
+          <mat-select panelClass="" formControlName="category" >
+            <mat-option *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
-    <div class="right-column">
-
+    <div class="submit-button">
+      <button  mat-raised-button type="submit"
+        [disabled]="submitted && !(productForm.valid && productForm.touched)">Submit</button>
     </div>
-    <button mat-raised-button type="submit"
-      [disabled]="submitted && !(productForm.valid && productForm.touched)">Submit</button>
   </form>
 </div>

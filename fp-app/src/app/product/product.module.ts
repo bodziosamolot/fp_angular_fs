@@ -26,6 +26,6 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     SharedModule,
     MatExpansionModule
-  ]
+  ],
 })
 export class ProductModule { }

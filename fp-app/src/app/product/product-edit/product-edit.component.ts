@@ -1,9 +1,10 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { ProductsService } from 'src/app/shared/products.service';
+import { EllipsisPipe } from 'src/app/shared/ellipsis.pipe';
 
 @Component({
   selector: 'app-product-edit',
@@ -23,6 +24,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
     created: new FormControl(''),
   });
 
+  public categories: string[] = ['electronic', 'food', 'others'];
   public submitted = false;
   public productDetails$: Observable<any>;
   private productSubscription: Subscription;

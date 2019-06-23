@@ -20,4 +20,15 @@
 
 .add-product-button{
     margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.add-product-button a{
+    margin-right: 15px;
+}
+
+.paginator{
+    margin-top: 10px;
 }

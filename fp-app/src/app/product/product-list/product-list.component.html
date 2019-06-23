@@ -5,17 +5,18 @@
 
     <mat-selection-list>
       <mat-list-item *ngFor="let product of products$ | async; let i = index">
-        <app-product-list-item class="item" [product]="product" (productRemoved)="onItemRemoved()"></app-product-list-item>
+        <app-product-list-item class="item" [product]="product" (productRemoved)="onItemRemoved()">
+        </app-product-list-item>
       </mat-list-item>
     </mat-selection-list>
 
     <div class="list-footer">
-      <div>
-        <a class="add-product-button" mat-raised-button routerLink="/products/create">Add product</a>
-      </div>
-      <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+      <mat-paginator class="paginator" [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
         (page)="getNewPage($event)">
       </mat-paginator>
+      <div class="add-product-button">
+        <a mat-raised-button routerLink="/products/create">Add product</a>
+      </div>
     </div>
 
   </div>

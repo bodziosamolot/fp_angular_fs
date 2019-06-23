@@ -59,6 +59,7 @@ import { EllipsisPipe } from './ellipsis.pipe';
     EllipsisPipe
   ],
   providers:[
+    EllipsisPipe
   ]
 })
 export class SharedModule { }
